@@ -1,0 +1,21 @@
+# Node
+node_modules
+npm-debug.log
+
+# Env files
+.env
+config.env
+
+# Angular (client)
+client/.angular/
+client/node_modules/
+client/dist/
+client/tmp/
+
+# Express (server)
+server/node_modules/
+server/prisma/dev.db
+server/prisma/dev.db-journal
+
+# Logs
+*.log
