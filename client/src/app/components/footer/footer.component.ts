@@ -49,7 +49,7 @@ import { Component } from '@angular/core';
           <h4>Contact Info</h4>
           <div class="contact-info">
             <p><mat-icon>location_on</mat-icon> Seneca College, Toronto, ON</p>
-            <p><mat-icon>email</mat-icon> scienceclub@senecacollege.ca</p>
+            <p><mat-icon>email</mat-icon> scienceclub&#64;senecacollege.ca</p>
             <p><mat-icon>phone</mat-icon> (416) 491-5050</p>
             <p><mat-icon>schedule</mat-icon> Mon-Fri: 9AM-5PM</p>
           </div>
@@ -70,7 +70,7 @@ import { Component } from '@angular/core';
   `,
   styles: [`
     .footer {
-      background-color: #2c3e50;
+      background-color: #000000;
       color: white;
       padding-top: 60px;
     }
@@ -124,7 +124,7 @@ import { Component } from '@angular/core';
     }
 
     .social-link:hover {
-      background-color: #667eea;
+      background-color: #DA291C;
     }
 
     .social-link mat-icon {
@@ -150,7 +150,7 @@ import { Component } from '@angular/core';
     }
 
     .footer-links a:hover {
-      color: #667eea;
+      color: #DA291C;
     }
 
     .contact-info p {
@@ -165,13 +165,13 @@ import { Component } from '@angular/core';
       font-size: 18px;
       width: 18px;
       height: 18px;
-      color: #667eea;
+      color: #DA291C;
     }
 
     .footer-bottom {
-      border-top: 1px solid #34495e;
+      border-top: 1px solid #333333;
       padding: 20px 0;
-      background-color: #1a252f;
+      background-color: #000000;
     }
 
     .footer-bottom-content {
@@ -203,7 +203,7 @@ import { Component } from '@angular/core';
     }
 
     .footer-bottom-links a:hover {
-      color: #667eea;
+      color: #DA291C;
     }
 
     @media (max-width: 768px) {

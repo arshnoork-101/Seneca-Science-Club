@@ -50,6 +50,24 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Seneca Science Club API is running' });
 });
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Welcome to Seneca Science Club API',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth',
+      events: '/api/events',
+      members: '/api/members',
+      blog: '/api/blog',
+      gallery: '/api/gallery',
+      team: '/api/team',
+      contact: '/api/contact'
+    }
+  });
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);

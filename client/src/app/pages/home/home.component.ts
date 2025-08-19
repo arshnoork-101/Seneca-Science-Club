@@ -13,19 +13,22 @@ import { BlogService } from '../../services/blog.service';
           <h1 class="hero-title">
             Welcome to <span class="highlight">Seneca Science Club</span>
           </h1>
+          <p class="hero-tagline">
+            Join Seneca's largest student-led science community
+          </p>
           <p class="hero-subtitle">
             Igniting curiosity, fostering innovation, and building a community of science enthusiasts
           </p>
           <div class="hero-actions">
-            <button mat-raised-button color="accent" size="large" routerLink="/join" class="cta-button">
+            <button mat-raised-button size="large" routerLink="/join" class="cta-button primary-btn">
               <mat-icon>person_add</mat-icon>
               Join Now
             </button>
-            <button mat-stroked-button color="primary" size="large" routerLink="/events" class="cta-button">
+            <button mat-stroked-button size="large" routerLink="/events" class="cta-button secondary-btn">
               <mat-icon>event</mat-icon>
               Explore Events
             </button>
-            <button mat-stroked-button color="primary" size="large" routerLink="/blog" class="cta-button">
+            <button mat-stroked-button size="large" routerLink="/blog" class="cta-button secondary-btn">
               <mat-icon>article</mat-icon>
               Read Blog
             </button>
@@ -57,7 +60,7 @@ import { BlogService } from '../../services/blog.service';
               <h3>Next Event</h3>
               <p class="event-title">{{ nextEvent.title }}</p>
               <p class="event-date">{{ nextEvent.date | date:'MMM dd, yyyy' }}</p>
-              <button mat-raised-button color="primary" size="small" [routerLink]="['/events', nextEvent.id]">
+              <button mat-raised-button color="primary" size="small" [routerLink]="['/events', nextEvent.id]" class="highlight-btn">
                 Learn More
               </button>
             </div>
@@ -72,7 +75,7 @@ import { BlogService } from '../../services/blog.service';
               <h3>Latest Blog</h3>
               <p class="blog-title">{{ latestBlog.title }}</p>
               <p class="blog-excerpt">{{ latestBlog.excerpt | slice:0:80 }}...</p>
-              <button mat-raised-button color="primary" size="small" [routerLink]="['/blog', latestBlog.id]">
+              <button mat-raised-button color="primary" size="small" [routerLink]="['/blog', latestBlog.id]" class="highlight-btn">
                 Read More
               </button>
             </div>
@@ -87,7 +90,7 @@ import { BlogService } from '../../services/blog.service';
               <h3>Member Spotlight</h3>
               <p>Join our growing community of science enthusiasts</p>
               <p class="member-count">100+ Active Members</p>
-              <button mat-raised-button color="accent" size="small" routerLink="/join">
+              <button mat-raised-button color="accent" size="small" routerLink="/join" class="highlight-btn accent">
                 Become a Member
               </button>
             </div>
@@ -175,11 +178,11 @@ import { BlogService } from '../../services/blog.service';
           <h2>Ready to Start Your Science Journey?</h2>
           <p>Join the Seneca Science Club today and become part of a community that celebrates curiosity, innovation, and discovery.</p>
           <div class="cta-actions">
-            <button mat-raised-button color="accent" size="large" routerLink="/join" class="cta-button">
+            <button mat-raised-button color="accent" size="large" routerLink="/join" class="cta-button primary-btn">
               <mat-icon>person_add</mat-icon>
               Join Now
             </button>
-            <button mat-stroked-button color="primary" size="large" routerLink="/about" class="cta-button">
+            <button mat-stroked-button color="primary" size="large" routerLink="/about" class="cta-button secondary-btn">
               <mat-icon>info</mat-icon>
               Learn More
             </button>
@@ -190,41 +193,60 @@ import { BlogService } from '../../services/blog.service';
   `,
   styles: [`
     .hero-section {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(218, 41, 28, 0.5) 100%), 
+                  url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
       color: white;
-      padding: 80px 0;
-      min-height: 80vh;
+      padding: 120px 20px;
+      min-height: 90vh;
       display: flex;
       align-items: center;
+      position: relative;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     .hero-content {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      width: 100%;
     }
 
     .hero-title {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      line-height: 1.2;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      line-height: 1.3;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
     }
 
     .highlight {
-      color: #ffd700;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      color: #ffffff;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    }
+
+    .hero-tagline {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #FFD700;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+      font-style: italic;
     }
 
     .hero-subtitle {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       margin-bottom: 40px;
-      opacity: 0.9;
+      opacity: 0.95;
       line-height: 1.6;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
     }
 
     .hero-actions {
@@ -235,8 +257,41 @@ import { BlogService } from '../../services/blog.service';
 
     .cta-button {
       padding: 12px 24px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 500;
+      border-radius: 25px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      margin: 8px;
+    }
+
+    .primary-btn {
+      background: linear-gradient(45deg, #DA291C, #ff4444);
+      color: white;
+      box-shadow: 0 6px 20px rgba(218, 41, 28, 0.4);
+      border: none;
+    }
+
+    .primary-btn:hover {
+      background: linear-gradient(45deg, #b71c1c, #DA291C);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 10px 30px rgba(218, 41, 28, 0.6);
+    }
+
+    .secondary-btn {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
     }
 
     .hero-image {
@@ -280,13 +335,15 @@ import { BlogService } from '../../services/blog.service';
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .section-title {
       text-align: center;
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 60px;
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 50px;
       color: #333;
     }
 
@@ -313,7 +370,7 @@ import { BlogService } from '../../services/blog.service';
       width: 60px;
       height: 60px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #667eea, #764ba2);
+      background: linear-gradient(135deg, #DA291C, #000000);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -334,7 +391,7 @@ import { BlogService } from '../../services/blog.service';
 
     .event-title, .blog-title {
       font-weight: 600;
-      color: #667eea;
+      color: #DA291C;
       margin-bottom: 8px;
     }
 
@@ -346,8 +403,34 @@ import { BlogService } from '../../services/blog.service';
     .member-count {
       font-size: 1.2rem;
       font-weight: 600;
-      color: #ffd700;
+      color: #DA291C;
       margin-bottom: 20px;
+    }
+
+    .highlight-btn {
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      background: linear-gradient(45deg, #DA291C, #ff4444);
+      color: white;
+      box-shadow: 0 3px 10px rgba(218, 41, 28, 0.3);
+    }
+
+    .highlight-btn:hover {
+      background: linear-gradient(45deg, #ff4444, #DA291C);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(218, 41, 28, 0.5);
+    }
+
+    .highlight-btn.accent {
+      background: linear-gradient(45deg, #000000, #333333);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .highlight-btn.accent:hover {
+      background: linear-gradient(45deg, #333333, #000000);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     }
 
     .features-section {
@@ -370,7 +453,7 @@ import { BlogService } from '../../services/blog.service';
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #ffd700, #ffb300);
+      background: linear-gradient(135deg, #DA291C, #666666);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -423,7 +506,7 @@ import { BlogService } from '../../services/blog.service';
 
     .social-header mat-icon {
       font-size: 2rem;
-      color: #667eea;
+      color: #DA291C;
     }
 
     .social-header h3 {
@@ -444,7 +527,7 @@ import { BlogService } from '../../services/blog.service';
 
     .cta-section {
       padding: 80px 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #DA291C 0%, #000000 100%);
       color: white;
     }
 
@@ -474,19 +557,91 @@ import { BlogService } from '../../services/blog.service';
       flex-wrap: wrap;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1400px) {
       .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
+        max-width: 1100px;
+      }
+      
+      .hero-title {
+        font-size: 2.3rem;
+      }
+      
+      .hero-tagline {
+        font-size: 1.15rem;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .hero-content {
+        max-width: 900px;
+        padding: 0 40px;
+      }
+      
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      
+      .hero-tagline {
+        font-size: 1.1rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.05rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero-section {
+        padding: 100px 0;
+        min-height: 85vh;
+      }
+      
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      
+      .hero-tagline {
+        font-size: 1.05rem;
+      }
+      
+      .cta-button {
+        padding: 11px 22px;
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 80px 0;
+        min-height: 80vh;
+      }
+      
+      .hero-content {
+        padding: 0 20px;
       }
 
       .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+      }
+      
+      .hero-tagline {
+        font-size: 1rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
       }
 
       .hero-actions {
         justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-button {
+        width: 100%;
+        max-width: 300px;
+        margin: 6px 0;
       }
 
       .highlights-grid {
@@ -504,6 +659,51 @@ import { BlogService } from '../../services/blog.service';
       .cta-actions {
         flex-direction: column;
         align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        padding: 60px 0;
+        min-height: 75vh;
+      }
+      
+      .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+      }
+      
+      .hero-tagline {
+        font-size: 0.95rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+      }
+      
+      .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero-title {
+        font-size: 1.6rem;
+      }
+      
+      .hero-tagline {
+        font-size: 0.9rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.9rem;
+      }
+      
+      .cta-button {
+        padding: 8px 16px;
+        font-size: 0.85rem;
       }
     }
   `]
@@ -524,18 +724,18 @@ export class HomeComponent implements OnInit {
   loadHighlights() {
     // Load next event
     this.eventService.getEvents({ status: 'UPCOMING', limit: 1 }).subscribe(
-      response => {
-        if (response.events && response.events.length > 0) {
-          this.nextEvent = response.events[0];
+      (response: any[]) => {
+        if (response && response.length > 0) {
+          this.nextEvent = response[0];
         }
       }
     );
 
     // Load latest blog post
-    this.blogService.getBlogPosts({ limit: 1 }).subscribe(
-      response => {
-        if (response.posts && response.posts.length > 0) {
-          this.latestBlog = response.posts[0];
+    this.blogService.getPosts({ limit: 1 }).subscribe(
+      (response: any[]) => {
+        if (response && response.length > 0) {
+          this.latestBlog = response[0];
         }
       }
     );

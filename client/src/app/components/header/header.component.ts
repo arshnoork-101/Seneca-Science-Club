@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
   template: `
-    <mat-toolbar color="primary" class="header-toolbar">
+    <mat-toolbar class="header-toolbar">
       <div class="header-content">
         <div class="logo-section">
           <button mat-button routerLink="/" class="logo-button">
@@ -39,37 +37,10 @@ import { AuthService } from '../../services/auth.service';
         </nav>
 
         <div class="user-section">
-          <ng-container *ngIf="!isLoggedIn; else loggedInUser">
-            <button mat-button routerLink="/login" class="login-btn">
-              <mat-icon>login</mat-icon>
-              Login
-            </button>
-            <button mat-raised-button color="accent" routerLink="/join" class="join-btn">
-              <mat-icon>person_add</mat-icon>
-              Join Now
-            </button>
-          </ng-container>
-
-          <ng-template #loggedInUser>
-            <button mat-icon-button [matMenuTriggerFor]="userMenu" class="user-menu-btn">
-              <mat-icon>account_circle</mat-icon>
-            </button>
-            <mat-menu #userMenu="matMenu">
-              <button mat-menu-item routerLink="/profile">
-                <mat-icon>person</mat-icon>
-                <span>Profile</span>
-              </button>
-              <button mat-menu-item *ngIf="isAdmin" routerLink="/admin">
-                <mat-icon>admin_panel_settings</mat-icon>
-                <span>Admin</span>
-              </button>
-              <mat-divider></mat-divider>
-              <button mat-menu-item (click)="logout()">
-                <mat-icon>logout</mat-icon>
-                <span>Logout</span>
-              </button>
-            </mat-menu>
-          </ng-template>
+          <button mat-raised-button color="accent" routerLink="/join" class="join-btn">
+            <mat-icon>person_add</mat-icon>
+            Join Now
+          </button>
 
           <button mat-icon-button (click)="toggleMobileMenu()" class="mobile-menu-btn" [class.hidden]="!isMobile">
             <mat-icon>menu</mat-icon>
@@ -78,8 +49,8 @@ import { AuthService } from '../../services/auth.service';
       </div>
 
       <!-- Mobile Navigation Drawer -->
-      <mat-sidenav-container class="mobile-nav-container" *ngIf="isMobile">
-        <mat-sidenav #mobileNav mode="over" position="end" [opened]="mobileMenuOpen" class="mobile-nav">
+      <mat-sidenav-container class="mobile-nav-container" *ngIf="isMobile && mobileMenuOpen">
+        <mat-sidenav #mobileNav mode="over" position="end" [opened]="true" class="mobile-nav">
           <mat-nav-list>
             <a mat-list-item routerLink="/" (click)="closeMobileMenu()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
               <mat-icon>home</mat-icon>
@@ -110,32 +81,13 @@ import { AuthService } from '../../services/auth.service';
               <span>Contact</span>
             </a>
             <mat-divider></mat-divider>
-            <ng-container *ngIf="!isLoggedIn">
-              <a mat-list-item routerLink="/login" (click)="closeMobileMenu()">
-                <mat-icon>login</mat-icon>
-                <span>Login</span>
-              </a>
-              <a mat-list-item routerLink="/join" (click)="closeMobileMenu()">
-                <mat-icon>person_add</mat-icon>
-                <span>Join Now</span>
-              </a>
-            </ng-container>
-            <ng-container *ngIf="isLoggedIn">
-              <a mat-list-item routerLink="/profile" (click)="closeMobileMenu()">
-                <mat-icon>person</mat-icon>
-                <span>Profile</span>
-              </a>
-              <a mat-list-item *ngIf="isAdmin" routerLink="/admin" (click)="closeMobileMenu()">
-                <mat-icon>admin_panel_settings</mat-icon>
-                <span>Admin</span>
-              </a>
-              <a mat-list-item (click)="logout(); closeMobileMenu()">
-                <mat-icon>logout</mat-icon>
-                <span>Logout</span>
-              </a>
-            </ng-container>
+            <a mat-list-item routerLink="/join" (click)="closeMobileMenu()">
+              <mat-icon>person_add</mat-icon>
+              <span>Join Now</span>
+            </a>
           </mat-nav-list>
         </mat-sidenav>
+        <mat-sidenav-content (click)="closeMobileMenu()"></mat-sidenav-content>
       </mat-sidenav-container>
     </mat-toolbar>
   `,
@@ -146,7 +98,11 @@ import { AuthService } from '../../services/auth.service';
       left: 0;
       right: 0;
       z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background: white;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border-bottom: 2px solid #f0f0f0;
+      height: 90px;
+      padding: 0 30px;
     }
 
     .header-content {
@@ -154,84 +110,139 @@ import { AuthService } from '../../services/auth.service';
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 16px;
     }
 
     .logo-section {
       display: flex;
       align-items: center;
+      margin-right: 40px;
     }
 
     .logo-button {
       display: flex;
       align-items: center;
-      color: white;
+      color: #1a237e;
       text-decoration: none;
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-left: 12px;
+      transition: all 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .logo-button:hover {
+      background-color: rgba(218, 41, 28, 0.2);
+      transform: scale(1.05);
     }
 
     .logo-icon {
+      font-size: 1.8rem;
+      color: #DA291C;
       margin-right: 8px;
-      font-size: 28px;
-      width: 28px;
-      height: 28px;
     }
 
     .logo-text {
-      font-size: 20px;
+      font-size: 1.3rem;
       font-weight: 600;
+      margin-left: 12px;
+      color: #1a237e;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .nav-menu {
       display: flex;
       gap: 8px;
+      flex: 1;
+      justify-content: center;
+      margin: 0 20px;
     }
 
     .nav-menu button {
-      color: white;
+      margin: 0 12px;
+      color: #333;
       font-weight: 500;
+      font-size: 0.9rem;
+      padding: 12px 16px;
+      border-radius: 0;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: relative;
+      border-bottom: 3px solid transparent;
+    }
+
+    .nav-menu button:hover {
+      color: #DA291C;
+      border-bottom: 3px solid #DA291C;
+      transform: none;
+      background: none;
     }
 
     .nav-menu button.active {
-      background-color: rgba(255, 255, 255, 0.1);
+      color: #1a237e;
+      border-bottom: 3px solid #1a237e;
+      background: none;
     }
 
     .user-section {
       display: flex;
       align-items: center;
       gap: 8px;
-    }
-
-    .login-btn {
-      color: white;
+      flex-shrink: 0;
     }
 
     .join-btn {
-      background-color: #ff4081;
+      background: #333;
       color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .join-btn:hover {
+      background: #DA291C;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(218, 41, 28, 0.3);
     }
 
     .user-menu-btn {
       color: white;
+      transition: all 0.3s ease;
+      border-radius: 50%;
+    }
+
+    .user-menu-btn:hover {
+      background-color: rgba(218, 41, 28, 0.2);
+      transform: scale(1.1);
     }
 
     .mobile-menu-btn {
-      color: white;
+      color: #333;
       display: none;
     }
 
     .mobile-nav-container {
-      position: absolute;
-      top: 64px;
+      position: fixed;
+      top: 90px;
+      left: 0;
       right: 0;
-      width: 280px;
+      bottom: 0;
+      z-index: 999;
+      background: rgba(0, 0, 0, 0.5);
     }
 
     .mobile-nav {
       width: 280px;
+      background: white;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .mobile-nav .mat-nav-list {
@@ -246,6 +257,30 @@ import { AuthService } from '../../services/auth.service';
       margin-right: 16px;
     }
 
+    @media (max-width: 1200px) {
+      .nav-menu button {
+        margin: 0 8px;
+        padding: 10px 14px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .nav-menu button {
+        margin: 0 4px;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+      }
+      
+      .logo-text {
+        font-size: 1.2rem;
+      }
+      
+      .logo-icon {
+        font-size: 1.6rem;
+      }
+    }
+
     @media (max-width: 768px) {
       .nav-menu {
         display: none;
@@ -256,15 +291,43 @@ import { AuthService } from '../../services/auth.service';
       }
 
       .logo-text {
-        font-size: 16px;
+        font-size: 1.1rem;
+      }
+      
+      .logo-icon {
+        font-size: 1.5rem;
       }
 
       .header-content {
-        padding: 0 8px;
+        padding: 0 15px;
+      }
+      
+      .header-toolbar {
+        height: 70px;
+        padding: 0 15px;
       }
     }
 
     @media (max-width: 480px) {
+      .logo-text {
+        font-size: 1rem;
+      }
+      
+      .logo-icon {
+        font-size: 1.3rem;
+      }
+
+      .join-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+      }
+      
+      .header-toolbar {
+        height: 60px;
+      }
+    }
+
+    @media (max-width: 360px) {
       .logo-text {
         display: none;
       }
@@ -272,43 +335,33 @@ import { AuthService } from '../../services/auth.service';
       .join-btn span {
         display: none;
       }
+      
+      .join-btn {
+        padding: 8px 12px;
+      }
     }
   `]
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn = false;
-  isAdmin = false;
   isMobile = false;
   mobileMenuOpen = false;
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor() {}
 
   ngOnInit() {
-    this.checkAuthStatus();
     this.checkScreenSize();
     
-    // Listen for auth changes
-    this.authService.authStatus$.subscribe(status => {
-      this.isLoggedIn = status.isLoggedIn;
-      this.isAdmin = status.isAdmin;
-    });
-
     // Listen for window resize
     window.addEventListener('resize', () => {
       this.checkScreenSize();
     });
   }
 
-  checkAuthStatus() {
-    this.isLoggedIn = this.authService.isLoggedIn();
-    this.isAdmin = this.authService.isAdmin();
-  }
-
   checkScreenSize() {
     this.isMobile = window.innerWidth <= 768;
+    if (!this.isMobile) {
+      this.mobileMenuOpen = false;
+    }
   }
 
   toggleMobileMenu() {
@@ -317,10 +370,5 @@ export class HeaderComponent implements OnInit {
 
   closeMobileMenu() {
     this.mobileMenuOpen = false;
-  }
-
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/']);
   }
 }
