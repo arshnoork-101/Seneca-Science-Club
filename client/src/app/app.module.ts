@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -21,13 +22,11 @@ import { FooterComponent } from './components/footer/footer.component';
 
 // Page Components
 import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
 import { JoinComponent } from './pages/join/join.component';
 import { EventsComponent } from './pages/events/events.component';
 import { EventDetailComponent } from './pages/events/event-detail/event-detail.component';
 import { EventRegistrationComponent } from './pages/events/event-registration/event-registration.component';
 import { TeamComponent } from './pages/team/team.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogDetailComponent } from './pages/blog/blog-detail/blog-detail.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -42,13 +41,11 @@ import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-das
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    AboutComponent,
     JoinComponent,
     EventsComponent,
     EventDetailComponent,
     EventRegistrationComponent,
     TeamComponent,
-    GalleryComponent,
     BlogComponent,
     BlogDetailComponent,
     ContactComponent,
@@ -61,6 +58,7 @@ import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-das
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,

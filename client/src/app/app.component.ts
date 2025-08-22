@@ -13,6 +13,24 @@ import { Component } from '@angular/core';
     .main-content {
       min-height: calc(100vh - 128px); /* Account for header and footer */
       padding-top: 64px; /* Account for fixed header */
+      background-color: #1a1a1a;
+      transition: all 0.3s ease;
+    }
+
+    :host {
+      display: block;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   `]
 })

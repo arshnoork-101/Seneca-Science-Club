@@ -120,17 +120,16 @@ coverage
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# Angular specific
-client/.angular/
-client/dist/
-client/tmp/
-client/out-tsc/
-client/bazel-out
+# Angular specific (handled by client/.gitignore)
+# client/.angular/
+# client/tmp/
+# client/out-tsc/
+# client/bazel-out
 
-# Server specific
-server/dist/
-server/build/
-server/uploads/
+# Server specific (handled by server/.gitignore)
+# server/dist/
+# server/build/
+# server/uploads/
 
 # Database
 server/prisma/dev.db

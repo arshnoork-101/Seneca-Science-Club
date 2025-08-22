@@ -1,0 +1,21 @@
+{
+  "name": "seneca-science-club",
+  "version": "1.0.0",
+  "description": "Seneca Science Club Official Website",
+  "scripts": {
+    "install-client": "cd client && npm install",
+    "install-server": "cd server && npm install",
+    "install-all": "npm run install-client && npm run install-server",
+    "build": "cd client && npm run build",
+    "start": "cd client && npm start",
+    "dev": "cd client && npm run start",
+    "deploy": "npm run build"
+  },
+  "keywords": ["science", "club", "seneca", "angular", "website"],
+  "author": "Seneca Science Club",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

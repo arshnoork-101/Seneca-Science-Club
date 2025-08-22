@@ -6,436 +6,799 @@ import { BlogService } from '../../services/blog.service';
 @Component({
   selector: 'app-home',
   template: `
-    <!-- Hero Section -->
     <section class="hero-section">
+      <!-- Science Tools Background -->
+      <div class="science-background">
+        <div class="large-science-tool tool-1">🧪</div>
+        <div class="large-science-tool tool-2">🔬</div>
+        <div class="large-science-tool tool-3">⚗️</div>
+        <div class="large-science-tool tool-4">🔍</div>
+        <div class="large-science-tool tool-5">🧬</div>
+        <div class="large-science-tool tool-6">⚛️</div>
+        <div class="large-science-tool tool-7">🌡️</div>
+        <div class="large-science-tool tool-8">📊</div>
+        <div class="large-science-tool tool-9">🔭</div>
+        <div class="large-science-tool tool-10">💊</div>
+        <div class="large-science-tool tool-11">🧫</div>
+        <div class="large-science-tool tool-12">⚖️</div>
+        <div class="large-science-tool tool-13">🌌</div>
+        <div class="large-science-tool tool-14">🔋</div>
+        <div class="large-science-tool tool-15">🧲</div>
+        <div class="large-science-tool tool-16">📐</div>
+      </div>
       <div class="hero-content">
-        <div class="hero-text">
-          <h1 class="hero-title">
-            Welcome to <span class="highlight">Seneca Science Club</span>
-          </h1>
-          <p class="hero-tagline">
-            Join Seneca's largest student-led science community
-          </p>
-          <p class="hero-subtitle">
-            Igniting curiosity, fostering innovation, and building a community of science enthusiasts
-          </p>
-          <div class="hero-actions">
-            <button mat-raised-button size="large" routerLink="/join" class="cta-button primary-btn">
-              <mat-icon>person_add</mat-icon>
+        <h1 class="hero-title">
+          <span class="welcome-text">Welcome to</span>
+          <span class="club-name">Seneca Science Club</span>
+        </h1>
+        <p class="hero-subtitle">
+A student-led community uniting science explorers across Seneca.      
+</p>
+<div class="hero-buttons">
+          <button class="btn btn-secondary" routerLink="/events">
+            <span class="btn-icon">🔬</span>
+            Explore Events
+          </button>
+          <button class="btn btn-secondary" routerLink="/articles">
+            <span class="btn-icon">📚</span>
+            Read Articles
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section">
+      <div class="container">
+        <!-- Heading & Intro with Mission & Vision -->
+        <div class="about-header">
+          <h2 class="section-title">About Us</h2>
+          
+          <div class="about-image-container">
+            <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                 alt="Students collaborating in science lab" 
+                 class="about-main-image" />
+          </div>
+          
+          <div class="about-intro">
+            <p class="intro-line-1">Seneca Science Club is a student-led community of curious minds.</p>
+            <p class="intro-line-2">We explore, learn, and share science — leaving the classroom behind.</p>
+          </div>
+          
+          <div class="mission-vision-cards">
+            <div class="mission-card">
+              <div class="card-header">
+                <span class="card-icon">🎯</span>
+                <h3 class="card-title">Mission</h3>
+              </div>
+              <p class="card-content">
+                To foster <strong>curiosity</strong>, <strong>collaboration</strong>, and <strong>innovation</strong> through hands-on projects, events, and discussions.
+              </p>
+            </div>
+            
+            <div class="vision-card">
+              <div class="card-header">
+                <span class="card-icon">🌟</span>
+                <h3 class="card-title">Vision</h3>
+              </div>
+              <p class="card-content">
+                To build an <strong>inclusive</strong>, vibrant community that inspires the next generation of scientists and innovators at Seneca.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- What We Do -->
+        <div class="what-we-do">
+          <h3 class="subsection-title">What We Do</h3>
+          <div class="activities-grid">
+            <div class="activity-item">
+              <div class="activity-icon">🎓</div>
+              <p>Host workshops, guest lectures, and competitions to enhance learning</p>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">🌍</div>
+              <p>Organize science outreach and community events to spread awareness</p>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">🔬</div>
+              <p>Create opportunities for student-led projects and research</p>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">🤝</div>
+              <p>Provide a platform for networking with peers, faculty, and professionals</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Why Join Us (merged into About Us) -->
+        <div class="why-join">
+          <h3 class="subsection-title">Why Join Us</h3>
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <div class="benefit-icon">🔬</div>
+              <div class="benefit-content">
+                <h4>Learn & Grow</h4>
+                <p>Access to workshops, lectures, and hands-on experiments in various scientific disciplines</p>
+              </div>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">🤝</div>
+              <div class="benefit-content">
+                <h4>Build Connections</h4>
+                <p>Network with fellow students, faculty, and industry professionals in the science field</p>
+              </div>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">🌟</div>
+              <div class="benefit-content">
+                <h4>Leadership Opportunities</h4>
+                <p>Take on leadership roles and contribute to organizing events and activities</p>
+              </div>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">🌍</div>
+              <div class="benefit-content">
+                <h4>Real-World Experience</h4>
+                <p>Gain practical experience through field trips, competitions, and research projects</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Join Us & Stay Connected -->
+        <div class="join-stay-connected">
+          <div class="join-header">
+            <h3 class="join-title">👉 Stay Connected</h3>
+            <p class="join-intro">
+              Whether you're pursuing science as a career or simply curious about the world around you, 
+              the Seneca Science Club is the place to explore, innovate, and connect. Be part of the journey 
+              and stay updated with the latest science discoveries, events, and opportunities.
+            </p>
+          </div>
+          
+          <div class="join-actions">
+            <button class="btn btn-primary-highlight" routerLink="/membership">
+              <span class="btn-icon">🚀</span>
               Join Now
             </button>
-            <button mat-stroked-button size="large" routerLink="/events" class="cta-button secondary-btn">
-              <mat-icon>event</mat-icon>
-              Explore Events
-            </button>
-            <button mat-stroked-button size="large" routerLink="/blog" class="cta-button secondary-btn">
-              <mat-icon>article</mat-icon>
-              Read Blog
+            <button class="btn btn-secondary-outline" routerLink="/contact">
+              <span class="btn-icon">💬</span>
+              Contact Us
             </button>
           </div>
-        </div>
-        <div class="hero-image">
-          <div class="science-icons">
-            <mat-icon class="floating-icon icon-1">science</mat-icon>
-            <mat-icon class="floating-icon icon-2">biotech</mat-icon>
-            <mat-icon class="floating-icon icon-3">chemistry</mat-icon>
-            <mat-icon class="floating-icon icon-4">psychology</mat-icon>
-            <mat-icon class="floating-icon icon-5">biotech</mat-icon>
-          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Quick Highlights Section -->
-    <section class="highlights-section">
-      <div class="container">
-        <h2 class="section-title">What's Happening</h2>
-        <div class="highlights-grid">
-          <!-- Next Event -->
-          <div class="highlight-card event-highlight" *ngIf="nextEvent">
-            <div class="highlight-icon">
-              <mat-icon>event</mat-icon>
-            </div>
-            <div class="highlight-content">
-              <h3>Next Event</h3>
-              <p class="event-title">{{ nextEvent.title }}</p>
-              <p class="event-date">{{ nextEvent.date | date:'MMM dd, yyyy' }}</p>
-              <button mat-raised-button color="primary" size="small" [routerLink]="['/events', nextEvent.id]" class="highlight-btn">
-                Learn More
-              </button>
-            </div>
-          </div>
-
-          <!-- Latest Blog Post -->
-          <div class="highlight-card blog-highlight" *ngIf="latestBlog">
-            <div class="highlight-icon">
-              <mat-icon>article</mat-icon>
-            </div>
-            <div class="highlight-content">
-              <h3>Latest Blog</h3>
-              <p class="blog-title">{{ latestBlog.title }}</p>
-              <p class="blog-excerpt">{{ latestBlog.excerpt | slice:0:80 }}...</p>
-              <button mat-raised-button color="primary" size="small" [routerLink]="['/blog', latestBlog.id]" class="highlight-btn">
-                Read More
-              </button>
-            </div>
-          </div>
-
-          <!-- Member Spotlight -->
-          <div class="highlight-card member-highlight">
-            <div class="highlight-icon">
-              <mat-icon>star</mat-icon>
-            </div>
-            <div class="highlight-content">
-              <h3>Member Spotlight</h3>
-              <p>Join our growing community of science enthusiasts</p>
-              <p class="member-count">100+ Active Members</p>
-              <button mat-raised-button color="accent" size="small" routerLink="/join" class="highlight-btn accent">
-                Become a Member
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features-section">
-      <div class="container">
-        <h2 class="section-title">Why Join Seneca Science Club?</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">
-              <mat-icon>school</mat-icon>
-            </div>
-            <h3>Learn & Grow</h3>
-            <p>Access to workshops, lectures, and hands-on experiments in various scientific disciplines</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <mat-icon>people</mat-icon>
-            </div>
-            <h3>Build Connections</h3>
-            <p>Network with fellow students, faculty, and industry professionals in the science field</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <mat-icon>emoji_events</mat-icon>
-            </div>
-            <h3>Leadership Opportunities</h3>
-            <p>Take on leadership roles and contribute to organizing events and activities</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon">
-              <mat-icon>work</mat-icon>
-            </div>
-            <h3>Real-World Experience</h3>
-            <p>Gain practical experience through field trips, competitions, and research projects</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Social Feed Preview -->
-    <section class="social-section">
-      <div class="container">
-        <h2 class="section-title">Stay Connected</h2>
-        <div class="social-grid">
-          <div class="social-card instagram">
-            <div class="social-header">
-              <mat-icon>camera_alt</mat-icon>
-              <h3>Instagram</h3>
-            </div>
-            <p>Follow us for behind-the-scenes photos, event updates, and member spotlights</p>
-            <a href="https://instagram.com/senecascienceclub" target="_blank" class="social-link">
-              <button mat-stroked-button color="primary">
-                <mat-icon>launch</mat-icon>
-                Follow on Instagram
-              </button>
-            </a>
-          </div>
-          <div class="social-card linkedin">
-            <div class="social-header">
-              <mat-icon>business</mat-icon>
-              <h3>LinkedIn</h3>
-            </div>
-            <p>Connect with our professional network and stay updated on career opportunities</p>
-            <a href="https://linkedin.com/company/senecascienceclub" target="_blank" class="social-link">
-              <button mat-stroked-button color="primary">
-                <mat-icon>launch</mat-icon>
-                Connect on LinkedIn
-              </button>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section class="cta-section">
-      <div class="container">
-        <div class="cta-content">
-          <h2>Ready to Start Your Science Journey?</h2>
-          <p>Join the Seneca Science Club today and become part of a community that celebrates curiosity, innovation, and discovery.</p>
-          <div class="cta-actions">
-            <button mat-raised-button color="accent" size="large" routerLink="/join" class="cta-button primary-btn">
-              <mat-icon>person_add</mat-icon>
-              Join Now
-            </button>
-            <button mat-stroked-button color="primary" size="large" routerLink="/about" class="cta-button secondary-btn">
-              <mat-icon>info</mat-icon>
-              Learn More
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  `,
+`,
   styles: [`
     .hero-section {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(218, 41, 28, 0.5) 100%), 
-                  url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
-      color: white;
-      padding: 120px 20px;
-      min-height: 90vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #1a1a1a;
+      color: white;
       position: relative;
-      width: 100%;
-      overflow-x: hidden;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .science-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 10%;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .large-science-tool {
+      position: absolute;
+      font-size: 6rem;
+      opacity: 0.15;
+      animation: floatAround 15s infinite linear;
+      transform-origin: center;
+    }
+
+    .tool-1 { top: 8%; left: 12%; animation-delay: 0s; }
+    .tool-2 { top: 15%; right: 8%; animation-delay: -2s; }
+    .tool-3 { top: 22%; left: 6%; animation-delay: -4s; }
+    .tool-4 { top: 18%; right: 25%; animation-delay: -6s; }
+    .tool-5 { top: 28%; left: 18%; animation-delay: -8s; }
+    .tool-6 { top: 32%; right: 12%; animation-delay: -10s; }
+    .tool-7 { top: 68%; left: 14%; animation-delay: -12s; }
+    .tool-8 { top: 72%; right: 22%; animation-delay: -14s; }
+    .tool-9 { top: 78%; left: 8%; animation-delay: -16s; }
+    .tool-10 { top: 75%; right: 15%; animation-delay: -18s; }
+    .tool-11 { top: 82%; left: 28%; animation-delay: -1s; }
+    .tool-12 { top: 85%; right: 6%; animation-delay: -3s; }
+    .tool-13 { top: 88%; left: 16%; animation-delay: -5s; }
+    .tool-14 { top: 92%; right: 18%; animation-delay: -7s; }
+    .tool-15 { top: 12%; left: 45%; animation-delay: -9s; }
+    .tool-16 { top: 88%; left: 42%; animation-delay: -11s; }
+
+    @keyframes floatAround {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25% { transform: translateY(-20px) rotate(5deg); }
+      50% { transform: translateY(-10px) rotate(-5deg); }
+      75% { transform: translateY(-15px) rotate(3deg); }
+    }
+
+    .hero-gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(100, 41, 28, 0.1) 0%, rgba(0, 0, 0, 0.3) 70%);
+      z-index: 1;
     }
 
     .hero-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      justify-content: center;
-      position: relative;
+      max-width: 900px;
+      padding: 0 20px;
       z-index: 2;
-      width: 100%;
+      position: relative;
+      animation: heroSlideIn 1.2s ease-out;
     }
+
 
     .hero-title {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 15px;
-      line-height: 1.3;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      line-height: 1.2;
     }
 
-    .highlight {
+    .welcome-text {
+      display: block;
       color: #ffffff;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+      font-size: 3rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.3s forwards;
     }
 
-    .hero-tagline {
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin-bottom: 10px;
-      color: #FFD700;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
-      font-style: italic;
+    .club-name {
+      display: block;
+      color: rgb(190, 59, 127);
+      font-size: 3.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ff1493, #ff69b4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.8s forwards;
+      transition: all 0.3s ease;
     }
+
 
     .hero-subtitle {
-      font-size: 1.1rem;
-      margin-bottom: 40px;
-      opacity: 0.95;
-      line-height: 1.6;
-      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+      font-size: 1.4rem;
+      margin-bottom: 3rem;
+      color: #e0e0e0;
+      line-height: 1.7;
+      font-weight: 300;
+      text-align: center;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .hero-actions {
+    .hero-buttons {
       display: flex;
-      gap: 16px;
+      gap: 1.5rem;
+      justify-content: center;
       flex-wrap: wrap;
+      margin-bottom: 0.5rem;
     }
 
-    .cta-button {
-      padding: 12px 24px;
-      font-size: 1rem;
-      font-weight: 500;
-      border-radius: 25px;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-      margin: 8px;
+    .btn {
+      padding: 15px 30px;
+      border: 2px solid #ffffff;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      background: transparent;
+      color: #ffffff;
     }
 
-    .primary-btn {
-      background: linear-gradient(45deg, #DA291C, #ff4444);
-      color: white;
-      box-shadow: 0 6px 20px rgba(218, 41, 28, 0.4);
-      border: none;
+
+    .btn-icon {
+      font-size: 1.2rem;
     }
 
-    .primary-btn:hover {
-      background: linear-gradient(45deg, #b71c1c, #DA291C);
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 10px 30px rgba(218, 41, 28, 0.6);
+    .btn-primary {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid #ffffff;
     }
 
     .secondary-btn {
       background: transparent;
-      color: white;
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      padding: 12px 24px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin: 0 10px;
     }
 
-    .secondary-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border-color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+
+
+    .join-btn-simple {
+      background: #8B0000;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
     }
 
-    .hero-image {
-      position: relative;
-      height: 400px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
 
-    .science-icons {
-      position: relative;
-      width: 300px;
-      height: 300px;
-    }
 
-    .floating-icon {
-      position: absolute;
-      font-size: 4rem;
-      color: rgba(255, 255, 255, 0.8);
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .icon-1 { top: 0; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
-    .icon-2 { top: 20%; right: 0; animation-delay: 1s; }
-    .icon-3 { bottom: 20%; left: 0; animation-delay: 2s; }
-    .icon-4 { bottom: 0; left: 25%; animation-delay: 3s; }
-    .icon-5 { top: 40%; left: 10%; animation-delay: 4s; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-
-    .highlights-section {
-      padding: 80px 0;
-      background-color: #f8f9fa;
+    .about-section {
+      padding: 0;
+      background-color: #1a1a1a;
     }
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 30px;
       width: 100%;
       box-sizing: border-box;
     }
 
     .section-title {
       text-align: center;
-      font-size: 2rem;
-      font-weight: 500;
-      margin-bottom: 50px;
-      color: #333;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #ffffff;
+      background: linear-gradient(45deg, #FF69B4, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .highlights-grid {
+    .about-header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 40px;
+      color: #ffffff;
+      background: linear-gradient(45deg, #FF69B4, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .about-image-container {
+      margin: 30px auto 40px auto;
+      max-width: 600px;
+    }
+
+    .about-main-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .about-intro {
+      margin: 50px 0 60px 0;
+      text-align: center;
+    }
+
+    .intro-line-1 {
+      font-size: 1.4rem;
+      line-height: 1.6;
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .intro-line-2 {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+      font-style: italic;
+      margin-bottom: 0;
+    }
+
+    .mission-vision-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .mission-card, .vision-card {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+      border-radius: 20px;
+      padding: 30px;
+      border: 2px solid #444;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, rgba(255, 105, 180, 0.8), rgba(255, 105, 180, 0.4));
+    }
+
+    .vision-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, rgba(6, 182, 212, 0.8), rgba(6, 182, 212, 0.4));
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.1));
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: rgb(190, 59, 127);
+      margin: 0;
+    }
+
+    .card-content {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #e0e0e0;
+      margin: 0;
+    }
+
+    .card-content strong {
+      color: rgb(190, 59, 127);
+      font-weight: 700;
+    }
+
+
+    .what-we-do {
+      margin-bottom: 60px;
+    }
+
+    .subsection-title {
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #ffffff;
+      background: linear-gradient(45deg, #FF69B4, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 30px;
     }
 
-    .highlight-card {
-      background: white;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .highlight-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-    }
-
-    .highlight-icon {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #DA291C, #000000);
+    .activity-item {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 20px;
+      background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+      border-radius: 15px;
+      padding: 25px;
+      border: 1px solid #444;
+      transition: all 0.3s ease;
+    }
+
+
+    .activity-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .activity-item p {
+      color: #e0e0e0;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .why-join {
+      margin-bottom: 60px;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .benefit-card {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+      border-radius: 20px;
+      padding: 30px 20px;
+      text-align: center;
+      border: 1px solid #444;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #FF69B4, #06b6d4);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+
+    .benefit-icon {
+      font-size: 3rem;
       margin-bottom: 20px;
+      filter: drop-shadow(0 2px 6px rgba(6, 182, 212, 0.3));
     }
 
-    .highlight-icon mat-icon {
-      color: white;
-      font-size: 2rem;
-    }
-
-    .highlight-content h3 {
-      font-size: 1.5rem;
+    .benefit-content h4 {
+      font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 15px;
-      color: #333;
+      color: #06b6d4;
     }
 
-    .event-title, .blog-title {
+    .benefit-content p {
+      color: #cccccc;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .join-stay-connected {
+      text-align: center;
+      padding: 60px 40px;
+      position: relative;
+    }
+
+    .join-stay-connected::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #FF69B4, #06b6d4, #FF69B4);
+      background-size: 200% 100%;
+      animation: gradientShift 3s ease-in-out infinite;
+    }
+
+    .join-header {
+      margin-bottom: 40px;
+    }
+
+    .join-title {
+      font-size: 2.2rem;
       font-weight: 600;
-      color: #DA291C;
-      margin-bottom: 8px;
-    }
-
-    .event-date, .blog-excerpt {
-      color: #666;
+      color: #ffffff;
       margin-bottom: 20px;
+      background: linear-gradient(45deg, #FF69B4, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .member-count {
+    .join-intro {
       font-size: 1.2rem;
-      font-weight: 600;
-      color: #DA291C;
-      margin-bottom: 20px;
+      line-height: 1.7;
+      color: #e0e0e0;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    .highlight-btn {
-      padding: 10px 20px;
-      border-radius: 20px;
+    .join-actions {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary-highlight {
+      background: transparent;
+      border: 2px solid rgb(190, 59, 127);
+      color: rgb(190, 59, 127);
       font-weight: 600;
       transition: all 0.3s ease;
-      background: linear-gradient(45deg, #DA291C, #ff4444);
-      color: white;
-      box-shadow: 0 3px 10px rgba(218, 41, 28, 0.3);
     }
 
-    .highlight-btn:hover {
-      background: linear-gradient(45deg, #ff4444, #DA291C);
+    .btn-primary-highlight:hover {
+      background: rgba(190, 59, 127, 0.1);
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(218, 41, 28, 0.5);
     }
 
-    .highlight-btn.accent {
-      background: linear-gradient(45deg, #000000, #333333);
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+
+    .btn-secondary-outline {
+      background: transparent;
+      border: 2px solid #06b6d4;
+      color: #06b6d4;
+      font-weight: 500;
     }
 
-    .highlight-btn.accent:hover {
-      background: linear-gradient(45deg, #333333, #000000);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+
+    .social-connect {
+      border-top: 1px solid #444;
+      padding-top: 30px;
+    }
+
+    .connect-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+
+    .social-text {
+      font-size: 1.1rem;
+      color: #cccccc;
+      margin-bottom: 20px;
+    }
+
+    .social-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+      border: 2px solid #444;
+      border-radius: 12px;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-header {
+        text-align: center;
+      }
+
+      .section-title {
+        text-align: center;
+      }
+
+      .mission-vision-cards {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-intro {
+        text-align: center;
+      }
+
+      .activities-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .activity-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+
+      .join-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .social-btn {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-section {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .subsection-title {
+        font-size: 1.6rem;
+      }
+
+      .about-intro {
+        font-size: 1.1rem;
+      }
+
+      .join-stay-connected {
+        padding: 40px 20px;
+      }
+
+      .join-title {
+        font-size: 1.8rem;
+      }
+
+      .join-intro {
+        font-size: 1.1rem;
+      }
     }
 
     .features-section {
       padding: 80px 0;
-      background: white;
+      background: #1a1a1a;
     }
 
     .features-grid {
@@ -469,17 +832,101 @@ import { BlogService } from '../../services/blog.service';
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 15px;
-      color: #333;
+      color: #ffffff;
     }
 
     .feature-card p {
-      color: #666;
+      color: #cccccc;
       line-height: 1.6;
     }
 
     .social-section {
-      padding: 80px 0;
-      background-color: #f8f9fa;
+      padding: 50px 0;
+      background-color: #1a1a1a;
+    }
+
+    .stay-connected-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .section-title-left {
+      text-align: left;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .stay-connected-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #cccccc;
+      margin-bottom: 30px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-link-button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 25px;
+      background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+      border: 2px solid #444;
+      border-radius: 12px;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+
+    .stay-connected-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+.connection-icon {
+  font-size: 6rem;
+  padding: 2rem;
+  border-radius: 50%;
+  color: white;
+  filter: drop-shadow(0 8px 24px rgba(14, 165, 233, 0.5));
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .stay-connected-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+
+      .section-title-left {
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .connection-icon {
+        font-size: 8rem;
+      }
     }
 
     .social-grid {
@@ -489,11 +936,12 @@ import { BlogService } from '../../services/blog.service';
     }
 
     .social-card {
-      background: white;
+      background: #2a2a2a;
       border-radius: 16px;
       padding: 30px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
       text-align: center;
+      border: 1px solid #333;
     }
 
     .social-header {
@@ -512,11 +960,11 @@ import { BlogService } from '../../services/blog.service';
     .social-header h3 {
       font-size: 1.5rem;
       font-weight: 600;
-      color: #333;
+      color: #ffffff;
     }
 
     .social-card p {
-      color: #666;
+      color: #cccccc;
       margin-bottom: 25px;
       line-height: 1.6;
     }
@@ -706,6 +1154,71 @@ import { BlogService } from '../../services/blog.service';
         font-size: 0.85rem;
       }
     }
+
+    /* New Animation Keyframes */
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 20px rgba(211, 82, 73, 0.5), 0 0 30px rgba(218, 41, 28, 0.3);
+      }
+      100% {
+        text-shadow: 0 0 30px rgba(210, 54, 43, 0.8), 0 0 40px rgba(218, 41, 28, 0.5);
+      }
+    }
+
+    @keyframes wordGlow {
+      0% {
+        text-shadow: 0 0 5px rgba(0, 191, 255, 0.3);
+      }
+      100% {
+        text-shadow: 0 0 15px rgba(0, 191, 255, 0.6), 0 0 25px rgba(0, 191, 255, 0.3);
+      }
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes heroSlideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes statFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
   `]
 })
 export class HomeComponent implements OnInit {

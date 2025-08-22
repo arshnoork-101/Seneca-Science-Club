@@ -5,7 +5,11 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "echo 'No build step required for Node.js'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:generate": "npx prisma generate",
+    "db:migrate": "npx prisma migrate deploy",
+    "db:studio": "npx prisma studio"
   },
   "keywords": [],
   "author": "",
@@ -30,5 +34,8 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

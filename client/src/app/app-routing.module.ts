@@ -7,13 +7,11 @@ import { AdminGuard } from './guards/admin.guard';
 
 // Components
 import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
 import { JoinComponent } from './pages/join/join.component';
 import { EventsComponent } from './pages/events/events.component';
 import { EventDetailComponent } from './pages/events/event-detail/event-detail.component';
 import { EventRegistrationComponent } from './pages/events/event-registration/event-registration.component';
 import { TeamComponent } from './pages/team/team.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogDetailComponent } from './pages/blog/blog-detail/blog-detail.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -24,14 +22,14 @@ import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-das
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'join', component: JoinComponent },
   { path: 'events', component: EventsComponent },
   { path: 'events/:id', component: EventDetailComponent },
   { path: 'events/:id/register', component: EventRegistrationComponent },
   { path: 'team', component: TeamComponent },
-  { path: 'gallery', component: GalleryComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'articles', component: BlogComponent },
   { path: 'blog/:id', component: BlogDetailComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },

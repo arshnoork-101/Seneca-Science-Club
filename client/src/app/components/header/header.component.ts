@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -16,23 +17,17 @@ import { Component, OnInit } from '@angular/core';
           <button mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
             Home
           </button>
-          <button mat-button routerLink="/about" routerLinkActive="active">
-            About
-          </button>
           <button mat-button routerLink="/events" routerLinkActive="active">
             Events
           </button>
           <button mat-button routerLink="/team" routerLinkActive="active">
             Team
           </button>
-          <button mat-button routerLink="/gallery" routerLinkActive="active">
-            Gallery
-          </button>
-          <button mat-button routerLink="/blog" routerLinkActive="active">
-            Blog
+          <button mat-button routerLink="/articles" routerLinkActive="active">
+            Articles
           </button>
           <button mat-button routerLink="/contact" routerLinkActive="active">
-            Contact
+            Contact Us
           </button>
         </nav>
 
@@ -56,10 +51,6 @@ import { Component, OnInit } from '@angular/core';
               <mat-icon>home</mat-icon>
               <span>Home</span>
             </a>
-            <a mat-list-item routerLink="/about" (click)="closeMobileMenu()" routerLinkActive="active">
-              <mat-icon>info</mat-icon>
-              <span>About</span>
-            </a>
             <a mat-list-item routerLink="/events" (click)="closeMobileMenu()" routerLinkActive="active">
               <mat-icon>event</mat-icon>
               <span>Events</span>
@@ -68,13 +59,9 @@ import { Component, OnInit } from '@angular/core';
               <mat-icon>group</mat-icon>
               <span>Team</span>
             </a>
-            <a mat-list-item routerLink="/gallery" (click)="closeMobileMenu()" routerLinkActive="active">
-              <mat-icon>photo_library</mat-icon>
-              <span>Gallery</span>
-            </a>
-            <a mat-list-item routerLink="/blog" (click)="closeMobileMenu()" routerLinkActive="active">
+            <a mat-list-item routerLink="/articles" (click)="closeMobileMenu()" routerLinkActive="active">
               <mat-icon>article</mat-icon>
-              <span>Blog</span>
+              <span>Articles</span>
             </a>
             <a mat-list-item routerLink="/contact" (click)="closeMobileMenu()" routerLinkActive="active">
               <mat-icon>contact_support</mat-icon>
@@ -90,6 +77,12 @@ import { Component, OnInit } from '@angular/core';
         <mat-sidenav-content (click)="closeMobileMenu()"></mat-sidenav-content>
       </mat-sidenav-container>
     </mat-toolbar>
+
+    <!-- Sticky Floating Join Button -->
+    <button class="sticky-join-btn" [class.visible]="showStickyButton" (click)="navigateToJoin()">
+      <mat-icon>rocket_launch</mat-icon>
+      <span>Join Now</span>
+    </button>
   `,
   styles: [`
     .header-toolbar {
@@ -98,9 +91,8 @@ import { Component, OnInit } from '@angular/core';
       left: 0;
       right: 0;
       z-index: 1000;
-      background: white;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      border-bottom: 2px solid #f0f0f0;
+      background: #1a1a1a;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       height: 90px;
       padding: 0 30px;
     }
@@ -128,14 +120,8 @@ import { Component, OnInit } from '@angular/core';
       font-size: 1.8rem;
       font-weight: 700;
       margin-left: 12px;
-      transition: all 0.3s ease;
       padding: 8px 12px;
-      border-radius: 8px;
-    }
-
-    .logo-button:hover {
-      background-color: rgba(218, 41, 28, 0.2);
-      transform: scale(1.05);
+      transition: all 0.3s ease;
     }
 
     .logo-icon {
@@ -148,27 +134,28 @@ import { Component, OnInit } from '@angular/core';
       font-size: 1.3rem;
       font-weight: 600;
       margin-left: 12px;
-      color: #1a237e;
+      color: #ffffff;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
     .nav-menu {
       display: flex;
-      gap: 8px;
+      gap: 2px;
       flex: 1;
       justify-content: center;
-      margin: 0 20px;
+      margin: 0 10px;
     }
 
     .nav-menu button {
-      margin: 0 12px;
-      color: #333;
-      font-weight: 500;
+      color: #ffffff;
+      background: none;
+      border: none;
       font-size: 0.9rem;
-      padding: 12px 16px;
+      font-weight: 500;
+      margin: 0 6px;
+      padding: 12px 12px;
       border-radius: 0;
-      transition: all 0.3s ease;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       position: relative;
@@ -176,15 +163,14 @@ import { Component, OnInit } from '@angular/core';
     }
 
     .nav-menu button:hover {
-      color: #DA291C;
-      border-bottom: 3px solid #DA291C;
-      transform: none;
+      color: #ffffff;
+      border-bottom: 3px solid #ffffff;
       background: none;
     }
 
     .nav-menu button.active {
-      color: #1a237e;
-      border-bottom: 3px solid #1a237e;
+      color: #ffffff;
+      border-bottom: 3px solid #ffffff;
       background: none;
     }
 
@@ -196,21 +182,22 @@ import { Component, OnInit } from '@angular/core';
     }
 
     .join-btn {
-      background: #333;
+      background: transparent;
       color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-weight: 600;
       font-size: 0.9rem;
-      transition: all 0.3s ease;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border: 2px solid rgb(190, 59, 127);
     }
 
     .join-btn:hover {
-      background: #DA291C;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(218, 41, 28, 0.3);
+      transform: scale(1.1);
+      box-shadow: none;
+      transition : transform 0.8s ease-in-out;
     }
 
     .user-menu-btn {
@@ -225,7 +212,7 @@ import { Component, OnInit } from '@angular/core';
     }
 
     .mobile-menu-btn {
-      color: #333;
+      color: #ffffff;
       display: none;
     }
 
@@ -320,6 +307,7 @@ import { Component, OnInit } from '@angular/core';
       .join-btn {
         padding: 8px 12px;
         font-size: 0.8rem;
+        background-color: none;
       }
       
       .header-toolbar {
@@ -340,13 +328,103 @@ import { Component, OnInit } from '@angular/core';
         padding: 8px 12px;
       }
     }
+
+    /* Sticky Floating Join Button */
+    .sticky-join-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1001;
+      background: linear-gradient(45deg, #DA291C, #ff4444, #ff6b5a);
+      background-size: 200% 200%;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 8px 25px rgba(218, 41, 28, 0.4);
+      transition: all 0.3s ease;
+      animation: gradientShift 3s ease infinite, floatPulse 2s ease-in-out infinite;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      transform: translateY(100px);
+    }
+
+    .sticky-join-btn.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sticky-join-btn:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 12px 35px rgba(218, 41, 28, 0.5);
+    }
+
+    .sticky-join-btn mat-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .sticky-join-btn:hover mat-icon {
+      transform: rotate(360deg);
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes floatPulse {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-3px) scale(1.02);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sticky-join-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 16px;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sticky-join-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 14px;
+        font-size: 0.75rem;
+      }
+      
+      .sticky-join-btn span {
+        display: none;
+      }
+    }
   `]
 })
 export class HeaderComponent implements OnInit {
   isMobile = false;
   mobileMenuOpen = false;
+  showStickyButton = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.checkScreenSize();
@@ -370,5 +448,9 @@ export class HeaderComponent implements OnInit {
 
   closeMobileMenu() {
     this.mobileMenuOpen = false;
+  }
+
+  navigateToJoin() {
+    this.router.navigate(['/join']);
   }
 }

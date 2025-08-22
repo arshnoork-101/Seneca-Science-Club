@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "buildCommand": "cd client && npm install && npm install -g @angular/cli && npm run build",
+  "outputDirectory": "client/dist",
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
