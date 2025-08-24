@@ -32,16 +32,16 @@ import { BlogService } from '../../services/blog.service';
           <span class="club-name">Seneca Science Club</span>
         </h1>
         <p class="hero-subtitle">
-A student-led community uniting science explorers across Seneca.      
+Discover, learn, and connect through science at Seneca College.
 </p>
 <div class="hero-buttons">
           <button class="btn btn-secondary" routerLink="/events">
             <span class="btn-icon">🔬</span>
             Explore Events
           </button>
-          <button class="btn btn-secondary" routerLink="/articles">
+          <button class="btn btn-secondary" routerLink="/blog">
             <span class="btn-icon">📚</span>
-            Read Articles
+            Read Research
           </button>
         </div>
       </div>
@@ -61,8 +61,8 @@ A student-led community uniting science explorers across Seneca.
           </div>
           
           <div class="about-intro">
-            <p class="intro-line-1">Seneca Science Club is a student-led community of curious minds.</p>
-            <p class="intro-line-2">We explore, learn, and share science — leaving the classroom behind.</p>
+            <p class="intro-line-1">Seneca Science Club brings together passionate science students.</p>
+            <p class="intro-line-2">We explore cutting-edge research and foster scientific collaboration.</p>
           </div>
           
           <div class="mission-vision-cards">
@@ -205,6 +205,7 @@ A student-led community uniting science explorers across Seneca.
       transform-origin: center;
     }
 
+
     .tool-1 { top: 8%; left: 12%; animation-delay: 0s; }
     .tool-2 { top: 15%; right: 8%; animation-delay: -2s; }
     .tool-3 { top: 22%; left: 6%; animation-delay: -4s; }
@@ -227,6 +228,68 @@ A student-led community uniting science explorers across Seneca.
       25% { transform: translateY(-20px) rotate(5deg); }
       50% { transform: translateY(-10px) rotate(-5deg); }
       75% { transform: translateY(-15px) rotate(3deg); }
+    }
+
+    /* Responsive science background - reduce tool visibility on small screens */
+    @media (max-width: 1200px) {
+      .large-science-tool {
+        font-size: 5rem;
+        opacity: 0.12;
+      }
+      /* Hide some tools on medium screens */
+      .tool-9, .tool-10, .tool-11, .tool-12, .tool-13, .tool-14, .tool-15, .tool-16 {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .science-background {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+      }
+      .large-science-tool {
+        font-size: 4rem;
+        opacity: 0.08;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        flex: 1;
+        text-align: center;
+        margin: 10px;
+      }
+      /* Hide more tools on small screens - keep only essential ones */
+      .tool-5, .tool-6, .tool-7, .tool-8 {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .science-background {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 10px;
+      }
+      .large-science-tool {
+        font-size: 3rem;
+        opacity: 0.05;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        flex: 1;
+        text-align: center;
+        margin: 15px 5px;
+      }
+      /* Keep only 2 tools on very small screens */
+      .tool-3, .tool-4 {
+        display: none;
+      }
     }
 
     .hero-gradient-overlay {
@@ -513,7 +576,7 @@ A student-led community uniting science explorers across Seneca.
     .activities-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 25px;
     }
 
     .activity-item {
@@ -526,7 +589,6 @@ A student-led community uniting science explorers across Seneca.
       border: 1px solid #444;
       transition: all 0.3s ease;
     }
-
 
     .activity-icon {
       font-size: 2.5rem;
@@ -571,7 +633,6 @@ A student-led community uniting science explorers across Seneca.
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-
 
     .benefit-icon {
       font-size: 3rem;
@@ -703,6 +764,7 @@ A student-led community uniting science explorers across Seneca.
     }
 
 
+
     /* Responsive Design */
     @media (max-width: 1200px) {
       .benefits-grid {
@@ -782,6 +844,77 @@ A student-led community uniting science explorers across Seneca.
       .about-intro {
         font-size: 1.1rem;
       }
+
+      .join-stay-connected {
+        padding: 40px 20px;
+      }
+
+      .join-title {
+        font-size: 1.8rem;
+      }
+
+      .join-intro {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-header {
+        text-align: center;
+      }
+
+      .section-title {
+        text-align: center;
+      }
+
+      .mission-vision-cards {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-intro {
+        text-align: center;
+      }
+
+
+      .join-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .social-btn {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-section {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .subsection-title {
+        font-size: 1.6rem;
+      }
+
+      .about-intro {
+        font-size: 1.1rem;
+      }
+      
 
       .join-stay-connected {
         padding: 40px 20px;
@@ -1072,12 +1205,16 @@ A student-led community uniting science explorers across Seneca.
         font-size: 2rem;
       }
       
-      .hero-tagline {
-        font-size: 1rem;
+      .welcome-text {
+        font-size: 2.2rem;
+      }
+      
+      .club-name {
+        font-size: 2.5rem;
       }
       
       .hero-subtitle {
-        font-size: 1rem;
+        font-size: 1.2rem;
       }
 
       .hero-actions {
@@ -1121,12 +1258,16 @@ A student-led community uniting science explorers across Seneca.
         margin-bottom: 15px;
       }
       
-      .hero-tagline {
-        font-size: 0.95rem;
+      .welcome-text {
+        font-size: 1.8rem;
+      }
+      
+      .club-name {
+        font-size: 2rem;
       }
       
       .hero-subtitle {
-        font-size: 0.95rem;
+        font-size: 1.1rem;
         margin-bottom: 30px;
       }
       
@@ -1141,12 +1282,16 @@ A student-led community uniting science explorers across Seneca.
         font-size: 1.6rem;
       }
       
-      .hero-tagline {
-        font-size: 0.9rem;
+      .welcome-text {
+        font-size: 1.5rem;
+      }
+      
+      .club-name {
+        font-size: 1.7rem;
       }
       
       .hero-subtitle {
-        font-size: 0.9rem;
+        font-size: 1rem;
       }
       
       .cta-button {

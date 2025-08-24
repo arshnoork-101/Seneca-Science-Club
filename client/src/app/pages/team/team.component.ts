@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-team',
   template: `
     <div class="team-container">
-
       <!-- Leadership Team Section -->
       <section class="leadership-section">
         <div class="container">
@@ -41,7 +40,7 @@ import { Component } from '@angular/core';
       text-align: center;
       margin-bottom: 4rem;
       margin-top: -10px;
-      background: linear-gradient(135deg, #ff69b4, #06b6d4);
+      background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -83,6 +82,7 @@ import { Component } from '@angular/core';
       padding: 3rem 0;
       position: relative;
       z-index: 2;
+      height: 100%;
     }
 
 
@@ -173,6 +173,9 @@ import { Component } from '@angular/core';
       color: #b0b0b0;
       line-height: 1.6;
       font-style: italic;
+      border-top: 1px solid #333;
+      padding-top: 1rem;
+      margin-top: 1rem;
     }
 
 
@@ -248,27 +251,47 @@ import { Component } from '@angular/core';
         align-items: center;
       }
     }
+
+    .leader-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* ensures equal height cards */
+}
+
+.leader-image {
+  flex: 1; /* take up available height */
+  height: 100%;
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
+}
+
+.leader-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps aspect ratio while filling */
+}
+
   `]
 })
 export class TeamComponent {
   leaders = [
     {
-      name: 'Sarah Chen',
+      name: 'Oakar',
       program: 'President',
       funLine: 'Leading the club towards scientific excellence! 🚀',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80'
+      image: 'https://res.cloudinary.com/da9gwrtit/image/upload/v1756002674/oakar_xxb7zr.jpg'
     },
     {
-      name: 'Marcus Johnson',
+      name: 'Arshnoor Kaur',
       program: 'Vice-President',
       funLine: 'Supporting innovation and collaboration! 🤝',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80'
+      image: 'https://res.cloudinary.com/da9gwrtit/image/upload/v1731818211/oc53fp15cp1gg5aogucq.jpg'
     },
     {
-      name: 'Emily Rodriguez',
+      name: 'Majo Mostajo',
       program: 'Treasurer',
       funLine: 'Managing resources for maximum scientific impact! 💰',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80'
+      image: 'https://res.cloudinary.com/da9gwrtit/image/upload/v1756002674/oakar_xxb7zr.jpg'
     }
   ];
 }
