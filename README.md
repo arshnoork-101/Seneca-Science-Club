@@ -2,7 +2,10 @@
 
 A professional, modern website for the Seneca Science Club built with Angular frontend and Node.js backend, featuring event management, member registration, blog system, and more.
 
-🎥 **Demo:** [Watch Here](https://drive.google.com/file/d/1B-HiJsJLB5A82UBNU-c24_RBvvmjlVna/view?usp=drive_link)  
+🎥 **Live Demo**  
+- 🎥 [Video Demo](https://drive.google.com/file/d/1B-HiJsJLB5A82UBNU-c24_RBvvmjlVna/view?usp=drive_link)  
+- **Frontend**: [seneca-science-club-frontend.vercel.app](https://seneca-science-club-frontend-dkp1.vercel.app/)  
+- **Backend API**: [ssc-backend.onrender.com](https://ssc-backend-49m0.onrender.com/)  
 
 
 ## 🌟 Features
